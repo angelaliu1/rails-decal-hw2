@@ -1,0 +1,30 @@
+<h1>City Lights</h1>
+<%#= City.all%>
+
+<% if @name%>
+  <% @c = City.all[@name.to_sym]%>
+  <h2><%= @name %></h2>
+  <p>
+    Landmark: <%= @c.landmark %> <br>
+    Population: <%= @c.landmark %> <br>
+    Weather: <%= @c.weather[:temperature] %> °F, with <%= @c.weather[:description] %>
+  </p>
+<% else %>
+  <% City.all.each do |k,v| %> <%# name, city object  %>
+    <%# if c != nil %>
+      <h2><%= v.name %></h2>
+      <p>
+        Landmark: <%= v.landmark %> <br>
+        Population: <%= v.population %><br>
+        Weather: <%= v.weather[:temperature] %> °F, with <%= v.weather[:description] %>
+      </p>
+    <%# end %>
+  <% end %>
+<% end %>
+
+<a href="/cities/new"> <button>Add a city</button></a>
+<a href="/cities/update"> <button>Update</button></a>
+
+<%#<form action="/cities/update">
+    <input type="submit" value="Update"/>
+</form>%>

@@ -1,1 +1,8 @@
-<h1>update form</h1>
+<h1>Update an existing city</h1>
+
+<%= form_with local: true, method: "post", url:"/cities/update" do |form| %>
+  <p>City: <%= form.text_field :city %></p>
+  <p>Landmark: <%= form.text_field :landmark %></p>
+  <p>Population: <%= form.number_field :population %></p>
+	<%= form.submit %>
+<% end %>

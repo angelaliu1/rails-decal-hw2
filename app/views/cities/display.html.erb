@@ -1,9 +1,0 @@
-<h1>view cities</h1>
-
-<% if %>
-<% City.all.each do |c| %>
-  <% if not c.nil? %>
-    <h2> <%= c.name %></h2>
-    <p>It's <%= c.temperature %> °F with <%= c.description%>.</p>
-  <% end %>
-<% end %>

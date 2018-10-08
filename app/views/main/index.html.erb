@@ -1,16 +1,19 @@
 <!-- Your code here -->
-<h1>Hello World!</h1>
+<h1>Weather</h1>
 <!-- Save params[:name] to variable @namess-->
 <!-- <h2>Hello <%= @name%>!</h2> -->
 
 <%= form_with local: true, method: "get" do |form| %>
-  <p> City: <%= form.text_field :city %>
+  <p> City: <%= form.text_field :city %></p>
 	<%= form.submit %>
 <% end %>
 
-<% City.all.each do |c| %>
+<% City.all.each do |k, c| %>
   <% if not c.nil? %>
-    <h2> <%= c.name %></h2>
-    <p>It's <%= c.temperature %> °F with <%= c.description%>.</p>
+  	<h3> <%= c.name %></h3>
+  	<p>
+  		It's <%= ((9 / 5) * (c.weather[:temperature] - 273) + 32).ceil %>°F,
+  		with <%= c.weather[:description] %>
+  	</p>
   <% end %>
 <% end %>
